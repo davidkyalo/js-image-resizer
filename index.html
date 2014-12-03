@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html ng-app="prpApp">
+	<head>
+      <title>Resize Photos</title>
+		<base href="/">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="/touch-not/css/bootstrap.min.css" />
+	  <link rel="stylesheet" href="/touch-not/css/bootstrap-flat.min.css" />
+	  <link rel="stylesheet" href="/touch-not/css/style.css" />
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,600,300' rel='stylesheet' type='text/css'>
+ 
+	</head>
+        <body>
+        <header>
+	        <div class="container">
+	        	<h2 class="logo">
+	        	Resize Images 
+		        </h2>
+		        <div class="pull-right" style="padding-top:5px; font-size:1.5em">		        
+			          <a href="#" class="btn btn-success" >
+			          	<i class="glyphicon glyphicon-question-sign"></i> Help
+			          </a>
+			   
+		        </div>
+		     </div>
+
+        </header>
+        
+		<div id="main" class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<center>
+						<div>Select the images to be resized</div> 
+						<span class="btn btn-primary btn-lg btn-file">
+							<i class="glyphicon glyphicon-picture"></i>
+							Choose Files 
+							<input type="file" name="selectedFiles[]" id="selectedFiles" multiple />
+						</span>
+					</center>
+					<div>
+						<a href="#" class="btn btn-success" id="downloadLink"> Download All</a>
+					</div>
+					<output id="photosInfoOutput"></output>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/touch-not/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/touch-not/scripts/resize.js"></script>
+	</html>

@@ -1,0 +1,110 @@
+body{
+  position: relative;
+    font-family: 'Open Sans', serif;
+}
+
+header {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #f4f4f4;
+}
+.logo
+{
+  padding: 0;
+  margin: 0;
+  padding-top: 8px;
+  color: #333;
+  display: inline-block;
+}
+#is_loading_container 
+{
+  position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:99998;
+    display: none;
+}
+#is_loading_overlay
+{
+  background: #fff;
+  position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:99998;
+    
+    filter:alpha(opacity=70);
+  -moz-opacity:0.7;  
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+}
+
+#is_loading_content
+{
+  position:fixed;
+    left: 50%;
+    width: 300px;/*set to a negative number 1/2 of your height*/
+    margin-left: -50px; 
+    z-index:99999;
+  
+
+}
+
+
+.input-group-addon.addon-label{
+  min-width: 190px;
+  font-size: 1.1em;
+  font-weight: 500;  
+  max-height: 35px!important;
+}
+.input-group-many{
+  padding-left: 25px;
+}
+.input-group-many .input-group{
+  margin: 4px 0px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#photosInfoOutput{
+  padding-left: 20px;
+}
+#photosInfoOutput div{
+  float: left;
+  height: 190px;
+  width: 250px;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+
+#photosInfoOutput img{
+  padding: 5px;
+  width: auto;
+  height: 100%;
+}
