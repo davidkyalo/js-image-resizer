@@ -90,21 +90,30 @@ header {
 #photosInfoOutput{
   padding-left: 20px;
 }
-#photosInfoOutput div{
+#photosInfoOutput .photo-container{
   float: left;
-  height: 190px;
-  width: 250px;
-  margin: 10px;
-  padding: 5px;
+
+  margin: 5px;
+  padding: 0px;
+  padding-bottom: 7px;
   border: 1px solid #ccc;
-  overflow: hidden;
   text-align: center;
   background: #f4f4f4;
 }
 
+#photosInfoOutput .photo-wrap{  
+  overflow: hidden;
+  height: 180px;
+  width: 260px;
+  padding: 5px;
+  margin-bottom: 5px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
 
 #photosInfoOutput img{
-  padding: 5px;
+  max-width: 100%;
   width: auto;
   height: 100%;
+  max-height: 100%;
 }

@@ -8,8 +8,8 @@
 	  <link rel="stylesheet" href="/touch-not/css/bootstrap.min.css" />
 	  <link rel="stylesheet" href="/touch-not/css/bootstrap-flat.min.css" />
 	  <link rel="stylesheet" href="/touch-not/css/style.css" />
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,600,300' rel='stylesheet' type='text/css'>
- 
+     <!--  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,600,300' rel='stylesheet' type='text/css'>
+ --> 
 	</head>
         <body>
         <header>
@@ -29,20 +29,29 @@
         
 		<div id="main" class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<center>
-						<div>Select the images to be resized</div> 
-						<span class="btn btn-primary btn-lg btn-file">
+				<div class="clearfix">
+				<div class="col-md-6">
+					<div class="select-files"> 					
+					
+						<span class="btn btn-default btn-lg btn-file">
 							<i class="glyphicon glyphicon-picture"></i>
-							Choose Files 
+							Choose photos to be resized 
 							<input type="file" name="selectedFiles[]" id="selectedFiles" multiple />
 						</span>
-					</center>
-					<div>
-						<a href="#" class="btn btn-success" id="downloadLink"> Download All</a>
+					
 					</div>
-					<output id="photosInfoOutput"></output>
+
 				</div>
+				<div class="col-md-6">
+					<div class="pull-right">
+						<button class="btn btn-default btn-lg" id="downloadLink"> 
+						<i class="glyphicon glyphicon-download-alt"></i>  Download All
+					</button>
+					</div>
+					
+				</div>
+				</div>
+				<output id="photosInfoOutput"></output>
 			</div>
 		</div>
 	</body>

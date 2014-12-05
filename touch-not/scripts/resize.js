@@ -1,11 +1,10 @@
 var resizedPhotos = [];
 jQuery(document).ready(function($) {
   $('#downloadLink').hide();
-  //$('#downloadLink').click();
-
-
  
-      $('#selectedFiles').change(loadSelectedFiles);
+  $('body').on('click','#downloadLink', downloadAllPhotos);
+
+  $('#selectedFiles').change(loadSelectedFiles);
   
 
 
@@ -17,7 +16,15 @@ function showDownloadLink(show){
   }
 }
 
-
+function downloadAllPhotos(){
+     for (var i = 0; i < document.getElementsByClassName("btnPhotoDownload").length; i++){   
+    
+          var clickEvent = document.createEvent("MouseEvent");
+        clickEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); 
+            document.getElementsByClassName("btnPhotoDownload")[i].dispatchEvent(clickEvent);
+      }
+     return false;
+}
 
 
 function loadSelectedFiles(evt) {
@@ -52,9 +59,6 @@ function resizePhoto(photo, isLastPhoto){
         var tempW = tempImg.width;
         var tempH = tempImg.height;
 
-        steps = Math.ceil(Math.log(tempW / MAX_WIDTH) / Math.log(2));
-        console.log('Number of steps: ',steps);
-
         if (tempW > tempH) {
             if (tempW > MAX_WIDTH) {
                tempH *= MAX_WIDTH / tempW;
@@ -74,12 +78,7 @@ function resizePhoto(photo, isLastPhoto){
         ctx.drawImage(this, 0, 0, tempW, tempH);
         var dataURL = canvas.toDataURL("image/jpeg");
         
-          var imgDiv = document.createElement('div');
-            imgDiv.innerHTML = ['<img class="img-thumbnail" src="', dataURL,
-                              '" title="', escape(photo.name), '"/>'].join('');
-          document.getElementById('photosInfoOutput').insertBefore(imgDiv, null);
-        
-
+        showPhotoPreview(dataURL, getPhotoName(photo.name));
         resizedPhotos.push({ url: dataURL, name: photo.name});
         reader.abort();
         showDownloadLink(isLastPhoto);
@@ -88,5 +87,30 @@ function resizePhoto(photo, isLastPhoto){
    }
    reader.readAsDataURL(photo);
    
+  }
+
+  function getPhotoName(photoName){
+      photoName = escape(photoName);
+      var photoTypes = ['.png', '.jpeg', '.gif' ];
+      var newType = '.jpg';
+      for (var i = 0; i < photoTypes.length; i++) {
+        var photoType = photoTypes[i];
+        photoName = photoName.replace(photoType, newType);
+      };
+      return photoName;
+  }
+
+  function showPhotoPreview(dataURL, photoName){
+    var photoHtml = '<div class="photo-container">'
+                    +'<div class="photo-wrap">'
+                    +'<img src="' + dataURL + '" title="'+ escape(photoName) +'" '
+                    +'alt="'+ escape(photoName) +'"/>'
+                    +'</div>';
+    photoHtml +='<a href="'+ dataURL +'" class="btn btn-default btnPhotoDownload" download="'+ photoName +'">'
+              + '<i class="glyphicon glyphicon-download-alt"></i> '
+              + ' Download </a>';
+    photoHtml +='</div>';
+    $('#photosInfoOutput').append(photoHtml);
+
   }
 
